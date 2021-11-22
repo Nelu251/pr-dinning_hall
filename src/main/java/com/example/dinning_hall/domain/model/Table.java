@@ -4,7 +4,6 @@ import com.example.dinning_hall.domain.model.enums.TableStatus;
 import com.example.dinning_hall.repository.Foods;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Arrays;
 import java.util.Random;

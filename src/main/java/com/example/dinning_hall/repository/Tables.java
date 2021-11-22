@@ -3,6 +3,8 @@ package com.example.dinning_hall.repository;
 import com.example.dinning_hall.domain.model.Table;
 import com.example.dinning_hall.domain.model.enums.TableStatus;
 
+import java.util.NoSuchElementException;
+import java.util.stream.Collectors;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -20,14 +22,9 @@ public class Tables {
         tablesList.add(new Table(5, TableStatus.WAITING_TO_MAKE_ORDER));
     }
 
-    public static Table findWaitingTable() {
-        for (Table table: tablesList) {
-            if (table.getStatus().equals(TableStatus.WAITING_TO_MAKE_ORDER)){
-                return table;
-            }
-        }
-        return null;
+    public static Table findWaitingTable() throws NoSuchElementException {
+        return tablesList.stream().filter(table -> table.getStatus().equals(TableStatus.WAITING_TO_MAKE_ORDER))
+            .findFirst().orElseThrow();
     }
-
 
 }

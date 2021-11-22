@@ -1,6 +1,7 @@
 package com.example.dinning_hall.domain.dto;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 
 import java.util.List;
